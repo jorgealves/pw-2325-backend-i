@@ -1,5 +1,5 @@
 import click
-
+from eticgpt import bot as chat_bot
 
 
 @click.group()
@@ -8,8 +8,9 @@ def bot():
 
 
 @bot.command()
-def run():
-    gpt_bot.start()
+@click.option('--token', envvar="BOT_TOKEN",show_envvar=True, type=str)
+def run(token:str):
+    chat_bot.client.run(token)
 
 
 if __name__ == "__main__":
