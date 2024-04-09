@@ -4,6 +4,8 @@ from discord.message import Message
 from eticgpt.clients import OllamaAPI
 from eticgpt.models import OllamaPrompt, OllamaResponse
 
+from eticgpt import decorators
+
 
 intents= discord.Intents.default()
 
@@ -19,6 +21,7 @@ async def on_connect():
 async def on_ready():
     print('connected!!')
 
+@decorators.log
 @client.event
 async def on_message(message: Message):
     assert message
