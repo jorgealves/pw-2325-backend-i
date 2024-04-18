@@ -4,7 +4,7 @@ from posts.models import Post
 
 @admin.register(Post)
 class PostsAdmin(admin.ModelAdmin):
-    pass
+    list_display=("title","content","user")
 
 
 # admin.site.register(Post,PostsAdmin)
