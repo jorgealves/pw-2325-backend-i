@@ -11,7 +11,10 @@
   <h1>Backend</h1>
   {% block 'nav' %}
     {% if user.is_authenticated %}
-      <a href="{% url 'logout' %}">logout</a>
+      <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">logout</button>
+      </form>
     {% else %}
       <a href="{% url 'signup' %}">signup</a>
       <a href="{% url 'login' %}">login</a>
