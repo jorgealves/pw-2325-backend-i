@@ -1,0 +1,20 @@
+services:
+  django:
+    build:
+      context: .
+      dockerfile: django.Dockerfile
+    ports:
+      - 8000:8000
+    volumes:
+      - ./django:/app
+  
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: poetry run python api/run.py
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
+
